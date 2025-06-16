@@ -21,7 +21,7 @@ const Career = () => {
   return (
     <Container maxWidth="md" sx={{ py: 8 }}>
       <Typography variant="h3" component="h1" gutterBottom align="center">
-        Careers at JMVK Pharma
+        Careers at <span style={{ fontFamily: 'Qeensides', fontStyle: 'italic', fontWeight: 'bold', color: 'black' }}>JMVK Pharma</span>
       </Typography>
       <Typography align="center" sx={{ mb: 4 }}>
         We are always looking for talented individuals to join our team. Submit your details and we will get in touch if a suitable position is available.

@@ -55,7 +55,7 @@ const About = () => {
         }}
       >
         <Typography variant={isMobile ? 'h4' : 'h3'} component="h1" gutterBottom>
-          About JMVK Pharma
+          About <span style={{ fontFamily: 'Qeensides', fontStyle: 'italic', fontWeight: 'bold', color: 'black' }}>JMVK Pharma</span>
         </Typography>
         <Typography variant="h6" color="inherit" paragraph>
           Advancing Healthcare Through Innovation
@@ -69,7 +69,7 @@ const About = () => {
             Our Story
           </Typography>
           <Typography paragraph>
-            Founded with a vision to revolutionize healthcare, JMVK Pharma has grown into a leading
+            Founded with a vision to revolutionize healthcare, <span style={{ fontFamily: 'Qeensides', fontStyle: 'italic', fontWeight: 'bold', color: 'black' }}>JMVK Pharma</span> has grown into a leading
             pharmaceutical company dedicated to improving lives through innovative solutions. Our
             journey began with a simple yet powerful mission: to make quality healthcare accessible
             to all.
@@ -169,7 +169,7 @@ const About = () => {
           Corporate Social Responsibility
         </Typography>
         <Typography paragraph align="center">
-          At JMVK Pharma, we believe in giving back to society and making a positive impact on
+          At <span style={{ fontFamily: '"Playfair Display", serif', fontStyle: 'italic', fontWeight: 'bold', color: 'black' }}>JMVK Pharma</span>, we believe in giving back to society and making a positive impact on
           the communities we serve. Our CSR initiatives focus on healthcare access, education,
           and environmental sustainability.
         </Typography>

@@ -28,9 +28,9 @@ const Footer = () => {
         <Grid container spacing={4}>
           <Grid item xs={12} sm={4}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', mb: 2 }}>
-              <Box component="img" src={logo} alt="JMKV Pharma Logo" sx={{ height: 48, width: 48, mb: 1 }} />
-              <Typography variant="h6" gutterBottom>
-                JMKV PHARMA
+              <Box component="img" src={logo} alt="JMVK Pharma Logo" sx={{ height: 48, width: 48, mb: 1 }} />
+              <Typography variant="h6" sx={{ fontFamily: 'Qeensides', fontStyle: 'italic', fontWeight: 'bold', mb: 2, color: 'black' }}>
+                JMVK PHARMA
               </Typography>
             </Box>
             <Typography variant="body2" sx={{ mb: 2 }}>
@@ -129,7 +129,7 @@ const Footer = () => {
           }}
         >
           <Typography variant="body2">
-            © {new Date().getFullYear()} JMVK Pharma. All rights reserved.
+            © {new Date().getFullYear()} <span style={{ fontFamily: 'Qeensides', fontStyle: 'italic', fontWeight: 'bold', color: 'black' }}>JMVK Pharma</span>. All rights reserved.
           </Typography>
         </Box>
       </Container>

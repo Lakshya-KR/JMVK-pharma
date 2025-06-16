@@ -55,17 +55,24 @@ const Navbar = () => {
         <Toolbar>
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
             <Box component={RouterLink} to="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-              <Box component="img" src={logo} alt="JMKV Pharma Logo" sx={{ height: 44, width: 44, mr: 1, bgcolor: 'white', p: 0.5, borderRadius: '50%', boxShadow: 2, objectFit: 'contain', animation: 'logo-spin 4s linear infinite' }} />
+              <Box component="img" src={logo} alt="JMVK Pharma Logo" sx={{ height: 44, width: 44, mr: 1, bgcolor: 'white', p: 0.5, borderRadius: '50%', boxShadow: 2, objectFit: 'contain', animation: 'logo-spin 4s linear infinite' }} />
               <Typography
                 variant="h6"
+                noWrap
+                component="a"
+                href="/"
                 sx={{
-                  textDecoration: 'none',
-                  color: 'black',
+                  mr: 2,
+                  display: { xs: 'none', md: 'flex' },
+                  fontFamily: 'Qeensides',
+                  fontStyle: 'italic',
                   fontWeight: 'bold',
-                  letterSpacing: 1.5,
+                  letterSpacing: '.3rem',
+                  color: 'black',
+                  textDecoration: 'none',
                 }}
               >
-                JMKV PHARMA
+                JMVK PHARMA
               </Typography>
             </Box>
           </Box>

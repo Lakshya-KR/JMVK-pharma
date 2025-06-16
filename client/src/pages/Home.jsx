@@ -57,7 +57,7 @@ const Home = () => {
                 Advancing Healthcare Through Innovation
               </Typography>
               <Typography variant={isMobile ? 'body1' : 'h5'} paragraph>
-                JMVK Pharma is committed to developing and providing high-quality pharmaceutical products that improve lives worldwide.
+                <span style={{ fontFamily: 'Qeensides', fontStyle: 'italic', fontWeight: 'bold', color: 'black' }}>JMVK Pharma</span> is committed to developing and providing high-quality pharmaceutical products that improve lives worldwide.
               </Typography>
               <Button
                 component={RouterLink}
@@ -146,10 +146,8 @@ const Home = () => {
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={6}>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <Box component="img" src={logo} alt="JMKV Pharma Logo" sx={{ height: 56, width: 56, mr: 2 }} />
-                <Typography variant={isMobile ? 'h5' : 'h3'} component="h2" gutterBottom sx={{ fontWeight: 600, color: '#2c3e50' }}>
-                  About JMKV Pharma
-                </Typography>
+                <Box component="img" src={logo} alt="JMVK Pharma Logo" sx={{ height: 56, width: 56, mr: 2 }} />
+                <Typography variant="h4" component="h1" sx={{ fontFamily: 'Qeensides', fontStyle: 'italic', fontWeight: 'bold', color: 'black' }}>About JMVK Pharma</Typography>
               </Box>
               <Typography paragraph sx={{ color: '#222' }}>
                 We are a leading pharmaceutical company dedicated to improving global healthcare through innovative solutions and high-quality products.

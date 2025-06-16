@@ -2,6 +2,13 @@
 
 /* Custom styles */
 
+@font-face {
+  font-family: 'Qeensides';
+  src: url('./assets/font/queensides-font/Queensides-3z7Ey.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
