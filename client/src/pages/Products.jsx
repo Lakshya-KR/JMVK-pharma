@@ -60,8 +60,13 @@ const Products = () => {
   const categories = ['Tablets', 'Syrups', 'Injections', 'Creams', 'Other'];
 
   return (
-    <Container maxWidth="lg" sx={{ py: 8 }}>
-      <Typography variant="h3" component="h1" gutterBottom align="center">
+    <Container maxWidth="lg" sx={{
+      py: 8,
+      backgroundColor: 'white',
+      color: 'black',
+      minHeight: '100vh',
+    }}>
+      <Typography variant="h3" component="h1" gutterBottom align="center" sx={{ color: 'black' }}>
         Our Products
       </Typography>
 
@@ -70,15 +75,16 @@ const Products = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={4}>
             <FormControl fullWidth>
-              <InputLabel>Category</InputLabel>
+              <InputLabel sx={{ color: 'black' }}>Category</InputLabel>
               <Select
                 value={category}
                 label="Category"
                 onChange={(e) => setCategory(e.target.value)}
+                sx={{ color: 'black', '.MuiOutlinedInput-notchedOutline': { borderColor: 'black' }, '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } }}
               >
-                <MenuItem value="">All Categories</MenuItem>
+                <MenuItem value="" sx={{ color: 'black' }}>All Categories</MenuItem>
                 {categories.map((cat) => (
-                  <MenuItem key={cat} value={cat}>
+                  <MenuItem key={cat} value={cat} sx={{ color: 'black' }}>
                     {cat}
                   </MenuItem>
                 ))}
@@ -91,6 +97,25 @@ const Products = () => {
               label="Search Products"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              InputLabelProps={{
+                sx: { color: 'black' }
+              }}
+              InputProps={{
+                sx: { color: 'black' }
+              }}
+              sx={{
+                '.MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: 'black',
+                  },
+                  '&:hover fieldset': {
+                    borderColor: 'black',
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: 'black',
+                  },
+                }
+              }}
             />
           </Grid>
         </Grid>
@@ -118,20 +143,20 @@ const Products = () => {
                 alt={product.name}
               />
               <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography gutterBottom variant="h5" component="h2" sx={{ color: 'black' }}>
                   {product.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" paragraph>
+                <Typography variant="body2" sx={{ color: 'black' }} paragraph>
                   {product.description}
                 </Typography>
-                <Typography variant="subtitle1" color="primary">
+                <Typography variant="subtitle1" sx={{ color: 'black' }}>
                   Category: {product.category}
                 </Typography>
               </CardContent>
               <CardActions>
                 <Button
                   size="small"
-                  color="primary"
+                  sx={{ color: 'black' }}
                   onClick={() => navigate(`/products/${product._id}`)}
                 >
                   View Details
@@ -144,7 +169,7 @@ const Products = () => {
 
       {filteredProducts.length === 0 && (
         <Box sx={{ textAlign: 'center', mt: 4 }}>
-          <Typography variant="h6" color="text.secondary">
+          <Typography variant="h6" sx={{ color: 'black' }}>
             No products found matching your criteria.
           </Typography>
         </Box>
