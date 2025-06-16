@@ -10,7 +10,7 @@ import {
   Snackbar,
   Alert,
 } from '@mui/material';
-import axios from 'axios';
+import api from '../utils/api';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +37,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/contact', formData);
+      await api.post('/contact', formData);
       setSnackbar({
         open: true,
         message: 'Message sent successfully!',
@@ -53,7 +53,7 @@ const Contact = () => {
     } catch (error) {
       setSnackbar({
         open: true,
-        message: 'Error sending message. Please try again.',
+        message: 'Failed to send message',
         severity: 'error',
       });
     }

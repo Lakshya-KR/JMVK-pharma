@@ -22,7 +22,7 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
-import axios from 'axios';
+import api from '../../utils/api';
 
 const categories = ['Tablets', 'Syrups', 'Injections', 'Creams', 'Other'];
 
@@ -48,10 +48,10 @@ const ProductManager = ({ setSnackbar }) => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/products');
+      const res = await api.get('/products');
       setProducts(res.data);
     } catch (err) {
-      setSnackbar({ open: true, message: 'Failed to fetch products', severity: 'error' });
+      setSnackbar && setSnackbar({ open: true, message: 'Failed to fetch products', severity: 'error' });
     }
   };
 
@@ -80,20 +80,16 @@ const ProductManager = ({ setSnackbar }) => {
     setLoading(true);
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/products/${editId}`, form, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        setSnackbar({ open: true, message: 'Product updated', severity: 'success' });
+        await api.put(`/products/${editId}`, form);
+        setSnackbar && setSnackbar({ open: true, message: 'Product updated', severity: 'success' });
       } else {
-        await axios.post('http://localhost:5000/api/products', form, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        setSnackbar({ open: true, message: 'Product created', severity: 'success' });
+        await api.post('/products', form);
+        setSnackbar && setSnackbar({ open: true, message: 'Product created', severity: 'success' });
       }
       fetchProducts();
       handleClose();
     } catch (err) {
-      setSnackbar({ open: true, message: 'Error saving product', severity: 'error' });
+      setSnackbar && setSnackbar({ open: true, message: 'Error saving product', severity: 'error' });
     }
     setLoading(false);
   };
@@ -101,13 +97,11 @@ const ProductManager = ({ setSnackbar }) => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setSnackbar({ open: true, message: 'Product deleted', severity: 'success' });
+      await api.delete(`/products/${id}`);
+      setSnackbar && setSnackbar({ open: true, message: 'Product deleted', severity: 'success' });
       fetchProducts();
     } catch (err) {
-      setSnackbar({ open: true, message: 'Error deleting product', severity: 'error' });
+      setSnackbar && setSnackbar({ open: true, message: 'Error deleting product', severity: 'error' });
     }
   };
 

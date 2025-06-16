@@ -11,7 +11,7 @@ import {
   Alert,
   Grid,
 } from '@mui/material';
-import axios from 'axios';
+import api from '../utils/api';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -44,12 +44,12 @@ const Register = () => {
 
     try {
       const { confirmPassword, ...registrationData } = formData;
-      const response = await axios.post('http://localhost:5000/api/auth/register', registrationData);
+      const response = await api.post('/auth/register', registrationData);
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
-      navigate('/');
+      navigate('/dashboard');
     } catch (error) {
-      setError(error.response?.data?.message || 'An error occurred during registration');
+      setError(error.response?.data?.message || 'Registration failed');
     }
   };
 

@@ -10,7 +10,7 @@ import {
   Paper,
   Alert,
 } from '@mui/material';
-import axios from 'axios';
+import api from '../utils/api';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -29,10 +29,8 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const response = await api.post('/auth/login', formData);
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
       
@@ -42,7 +40,7 @@ const Login = () => {
         navigate('/');
       }
     } catch (error) {
-      setError(error.response?.data?.message || 'An error occurred during login');
+      setError('Invalid credentials');
     }
   };
 

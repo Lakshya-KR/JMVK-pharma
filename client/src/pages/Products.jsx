@@ -16,7 +16,7 @@ import {
   MenuItem,
   TextField,
 } from '@mui/material';
-import axios from 'axios';
+import api from '../utils/api';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -28,7 +28,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products');
+        const response = await api.get('/products');
         setProducts(response.data);
         setFilteredProducts(response.data);
       } catch (error) {

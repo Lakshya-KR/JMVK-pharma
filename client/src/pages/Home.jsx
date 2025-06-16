@@ -13,7 +13,7 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import axios from 'axios';
+import api from '../utils/api';
 import logo from '../assets/logo.svg';
 
 const Home = () => {
@@ -24,7 +24,7 @@ const Home = () => {
   useEffect(() => {
     const fetchFeaturedProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products?limit=3');
+        const response = await api.get('/products?limit=3');
         setFeaturedProducts(response.data);
       } catch (error) {
         console.error('Error fetching featured products:', error);

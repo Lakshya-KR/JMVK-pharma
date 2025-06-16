@@ -15,7 +15,7 @@ import {
   Tooltip,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import axios from 'axios';
+import api from '../../utils/api';
 
 const statusOptions = ['pending', 'read', 'replied'];
 
@@ -25,12 +25,10 @@ const ContactManager = ({ setSnackbar }) => {
 
   const fetchMessages = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/contact', {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await api.get('/contact');
       setMessages(res.data);
     } catch (err) {
-      setSnackbar({ open: true, message: 'Failed to fetch messages', severity: 'error' });
+      setSnackbar && setSnackbar({ open: true, message: 'Failed to fetch messages', severity: 'error' });
     }
   };
 
@@ -41,26 +39,22 @@ const ContactManager = ({ setSnackbar }) => {
 
   const handleStatusChange = async (id, status) => {
     try {
-      await axios.patch(`http://localhost:5000/api/contact/${id}`, { status }, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setSnackbar({ open: true, message: 'Status updated', severity: 'success' });
+      await api.patch(`/contact/${id}`, { status });
+      setSnackbar && setSnackbar({ open: true, message: 'Status updated', severity: 'success' });
       fetchMessages();
     } catch (err) {
-      setSnackbar({ open: true, message: 'Error updating status', severity: 'error' });
+      setSnackbar && setSnackbar({ open: true, message: 'Error updating status', severity: 'error' });
     }
   };
 
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this message?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/contact/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setSnackbar({ open: true, message: 'Message deleted', severity: 'success' });
+      await api.delete(`/contact/${id}`);
+      setSnackbar && setSnackbar({ open: true, message: 'Message deleted', severity: 'success' });
       fetchMessages();
     } catch (err) {
-      setSnackbar({ open: true, message: 'Error deleting message', severity: 'error' });
+      setSnackbar && setSnackbar({ open: true, message: 'Error deleting message', severity: 'error' });
     }
   };
 
